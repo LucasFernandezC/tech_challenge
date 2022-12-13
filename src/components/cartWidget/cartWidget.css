@@ -1,0 +1,14 @@
+.cart-widget {
+  display: flex;
+  flex-direction: row;
+  color: black;
+  align-items: center;
+}
+
+.carritoIcon {
+  color: black;
+}
+
+.carritoIcon:hover {
+  cursor: pointer;
+}
