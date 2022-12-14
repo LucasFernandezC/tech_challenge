@@ -1,13 +1,11 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { dataContext } from "../../context/context";
 import products from "../../utils/products";
 import ItemDetail from "../itemDetail/itemDetail";
 
 const ItemDetailContainer = () => {
   const [detailProduct, setDetailProduct] = useState({});
-  const { listProducts } = useContext(dataContext);
   const { id } = useParams(":id");
 
   /* se va a utilizar cuando funcione la API
@@ -38,7 +36,7 @@ const ItemDetailContainer = () => {
   }, []);
 
   return (
-    <article id="results" className="itemdetailcontainer__producto">
+    <article id="results" className="">
       <ItemDetail props={detailProduct} />
     </article>
   );

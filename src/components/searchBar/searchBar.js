@@ -11,18 +11,17 @@ const SearchBar = (setSearch) => {
   };
   return (
     <>
-      <div className="col-12 d-flex justify-content-end">
+      <div className="d-flex justify-content-end my-3">
         <input
           type="search"
           name="search"
           id=""
           placeholder="Search..."
-          className="mx-5 my-2"
+          className="m-auto mx-2"
           onChange={handleSearch}
         ></input>
         <div>
-          <button className="btn btn-success  mx-2" onClick={handleClick}>
-            {" "}
+          <button className="button mx-1" onClick={handleClick}>
             Search
           </button>
         </div>

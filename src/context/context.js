@@ -9,18 +9,21 @@ const DataProvider = ({ children }) => {
   const [listProducts, setListProducts] = useState([]);
   const [localTimestamp, setLocalTimestamp] = useState();
   const [passHour, setPassHour] = useState(false);
-
+  const [search, setSearch] = useState("");
+  const [filtered, setFiltered] = useState([]);
   const getProducts = async () => {
     return products;
   };
 
-  const checkProvider = () => {
+  const checkProvider = (call) => {
     if (
       localTimestamp &&
       moment().unix().toString() < localTimestamp.toString()
     ) {
-      const data = JSON.parse(localStorage.getItem("data"));
-      setListProducts(data);
+      if (call == 0) {
+        const data = JSON.parse(localStorage.getItem("data"));
+        setListProducts(data);
+      }
     } else {
       getProducts().then((res) => {
         setListProducts(res);
@@ -34,11 +37,11 @@ const DataProvider = ({ children }) => {
 
   useEffect(() => {
     setLocalTimestamp(localStorage.getItem("timestamp"));
-    checkProvider();
+    checkProvider(0);
   }, []);
 
   useEffect(() => {
-    checkProvider();
+    checkProvider(1);
     setTimeout(() => {
       setPassHour(true);
     }, 60000);
@@ -61,8 +64,24 @@ const DataProvider = ({ children }) => {
       });
   };
 */
+
+  useEffect(() => {
+    search != "" ? filterItems() : setFiltered(listProducts);
+  }, [search, listProducts]);
+
+  const filterItems = () => {
+    search &&
+      setFiltered(
+        listProducts.filter(
+          (product) =>
+            product.marca.toLowerCase() == search.toLowerCase() ||
+            product.modelo.toLowerCase() == search.toLowerCase()
+        )
+      );
+  };
   const data = {
-    listProducts,
+    filtered,
+    setSearch,
   };
 
   return <dataContext.Provider value={data}>{children}</dataContext.Provider>;

@@ -4,11 +4,3 @@
   color: black;
   align-items: center;
 }
-
-.carritoIcon {
-  color: black;
-}
-
-.carritoIcon:hover {
-  cursor: pointer;
-}

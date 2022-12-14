@@ -1,6 +1,16 @@
-.busquedaresults__card img {
-  width: 200px;
-  height: 200px;
-  justify-self: center;
-  align-self: center;
+.button {
+  background-color: black;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.button-grey {
+  background-color: gray;
+}
+
+.link {
+  text-decoration: none;
 }
