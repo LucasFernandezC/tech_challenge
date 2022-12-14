@@ -36,7 +36,8 @@ const ItemDetailContainer = () => {
   }, []);
 
   return (
-    <article id="results" className="">
+    <article id="results" className="container ">
+      <h2 className="my-3 text-start">Detalle del producto</h2>
       <ItemDetail props={detailProduct} />
     </article>
   );

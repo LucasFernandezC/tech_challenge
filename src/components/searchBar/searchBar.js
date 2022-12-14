@@ -17,11 +17,11 @@ const SearchBar = (setSearch) => {
           name="search"
           id=""
           placeholder="Search..."
-          className="m-auto mx-2"
+          className="m-auto mx-1"
           onChange={handleSearch}
         ></input>
         <div>
-          <button className="button mx-1" onClick={handleClick}>
+          <button className="button mx-auto" onClick={handleClick}>
             Search
           </button>
         </div>

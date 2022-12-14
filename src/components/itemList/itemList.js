@@ -10,7 +10,7 @@ const ItemList = ({ dataProducts }) => {
             return <ItemCard key={el.id} props={el} />;
           })}
         {dataProducts.length == 0 && (
-          <p>No hay productos con los criterios de busqueda seleccionadosw</p>
+          <p>No hay productos con los criterios de busqueda seleccionados</p>
         )}
       </div>
     </>

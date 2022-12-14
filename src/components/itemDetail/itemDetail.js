@@ -7,21 +7,21 @@ const propsDetail = ({ props }) => {
   };
 
   return (
-    <div className="container">
-      <h2 className="my-3">Detalle del producto</h2>
-      <div className="row">
-        <article className="col-12 col-lg-4  ">
+    <div className="container py-5">
+      <div className="row ">
+        <article className="col-12 col-lg-5 border-end border-bottom ">
           <img
             src={props.imagen}
             className="w-100"
             alt="Producto en venta"
           ></img>
         </article>
-        <article className="col-12 col-lg-8">
-          <div className="text-center ">
-            <h2>
+        <article className="col-lg-2"></article>
+        <article className="col-12 col-lg-5 ">
+          <div className="text-start border-top border-bottom  ">
+            <h3>
               {props.marca} {props.modelo}{" "}
-            </h2>
+            </h3>
             <p>
               <strong>CPU:</strong> {props.cpu}
             </p>
@@ -53,7 +53,7 @@ const propsDetail = ({ props }) => {
               <strong>Precio:</strong> {props.precio}
             </p>
           </div>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column border-top border-bottom">
             <h2>Acciones</h2>
             <div>
               <button className="button" onClick={handleClick}>

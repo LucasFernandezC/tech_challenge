@@ -5,7 +5,7 @@ import Breadcrumbs from "../breadcrumbs/breadcrumbs";
 
 const Header = () => {
   return (
-    <header className="row bg-white">
+    <header className="row bg-white border-bottom">
       <div className="col-8 d-flex justify-content-start">
         <Link
           to="/"
