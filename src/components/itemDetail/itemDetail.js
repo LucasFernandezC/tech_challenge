@@ -1,15 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { dataContext } from "../../context/context";
+//import { useContext } from "react";
+//import { dataContext } from "../../context/context";
+import ItemCounts from "../itemCounts/itemCounts";
 
 const ItemDetail = ({ props }) => {
-  const { setCart, cart } = useContext(dataContext);
-  const handleClick = () => {
-    console.log("aqui va la llamada a la api");
+  //const { setCart, cart, setCartProducts, cartProducts } =
+  //  useContext(dataContext);
+  /*const handleClick = () => {
     setCart(cart + 1);
+    let producto = {
+      image: props.image,
+      price: props.price,
+      title: props.title,
+      id: props.id,
+    };
+    setCartProducts([...cartProducts, producto]);
   };
-
+*/
   return (
     <div className="container py-5">
       <div className="row ">
@@ -40,11 +48,8 @@ const ItemDetail = ({ props }) => {
           </div>
           <div className="d-flex flex-column border-top border-bottom">
             <h2>Acciones</h2>
-            <div>
-              <button className="button" onClick={handleClick}>
-                Agregar
-              </button>
-            </div>
+            <ItemCounts props={props} />
+
             <Link to={"/"}>
               <button className="button button-grey my-1">Regresar</button>
             </Link>

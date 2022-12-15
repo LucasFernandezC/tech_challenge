@@ -4,3 +4,21 @@
   color: black;
   align-items: center;
 }
+
+.item-cart-product {
+  display: flex;
+  width: max-content;
+  border-bottom: 1px solid #ccc;
+}
+
+.item-cart-product img {
+  width: 15%;
+  height: 40px;
+}
+.cart-product__details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 1%;
+  align-self: center;
+}

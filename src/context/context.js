@@ -17,6 +17,7 @@ const DataProvider = ({ children }) => {
   const [filtered, setFiltered] = useState([]);
   //constante de cart
   const [cart, setCart] = useState(0);
+  const [cartProducts, setCartProducts] = useState([]);
 
   /*version con Mock hasta que funciono la api
   const getProducts = async () => {
@@ -93,11 +94,47 @@ const DataProvider = ({ children }) => {
         )
       );
   };
+
+  const addProduct = (product) => {
+    if (cart > 0) {
+      const position = cartProducts.findIndex(
+        (element) => element.id == product.id
+      );
+      if (position == -1) {
+        setCartProducts([...cartProducts, product]);
+        setCart(cart + product.count);
+      } else {
+        cartProducts[position].count =
+          cartProducts[position].count + product.count;
+        setCart(cart + product.count);
+      }
+    } else {
+      setCartProducts([product]);
+      setCart(product.count);
+    }
+  };
+
+  const deleteProduct = (product) => {
+    setCart(cart - product.count);
+    setCartProducts(
+      cartProducts.filter((cartProduct) => cartProduct.id !== product.id)
+    );
+  };
+
+  const clear = () => {
+    setCart(0);
+    setCartProducts([]);
+  };
   const data = {
     filtered,
     setSearch,
     cart,
     setCart,
+    cartProducts,
+    setCartProducts,
+    deleteProduct,
+    clear,
+    addProduct,
   };
 
   return <dataContext.Provider value={data}>{children}</dataContext.Provider>;
