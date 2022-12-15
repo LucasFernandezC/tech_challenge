@@ -5,9 +5,7 @@ import { useContext } from "react";
 import { dataContext } from "../../context/context";
 
 const ItemContainer = () => {
-  //const [listProducts, setListProducts] = useState([]);
   const { filtered, setSearch } = useContext(dataContext);
-
   return (
     <article id="results" className="container col-12">
       <h2 className="my-3 mx-2 text-start">Productos</h2>

@@ -4,7 +4,7 @@ import ItemCard from "../itemCard/itemCard";
 const ItemList = ({ dataProducts }) => {
   return (
     <>
-      <div className=" row mx-5">
+      <div className="row mx-2">
         {dataProducts.length > 0 &&
           dataProducts.map((el) => {
             return <ItemCard key={el.id} props={el} />;

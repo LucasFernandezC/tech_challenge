@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { dataContext } from "../../context/context";
 
-const propsDetail = ({ props }) => {
+const ItemDetail = ({ props }) => {
+  const { setCart, cart } = useContext(dataContext);
   const handleClick = () => {
     console.log("aqui va la llamada a la api");
+    setCart(cart + 1);
   };
 
   return (
@@ -11,7 +15,7 @@ const propsDetail = ({ props }) => {
       <div className="row ">
         <article className="col-12 col-lg-5 border-end border-bottom ">
           <img
-            src={props.imagen}
+            src={props.image}
             className="w-100"
             alt="Producto en venta"
           ></img>
@@ -19,38 +23,19 @@ const propsDetail = ({ props }) => {
         <article className="col-lg-2"></article>
         <article className="col-12 col-lg-5 ">
           <div className="text-start border-top border-bottom  ">
-            <h3>
-              {props.marca} {props.modelo}{" "}
-            </h3>
+            <h3>{props.title}</h3>
+            <p>{props.description}</p>
             <p>
-              <strong>CPU:</strong> {props.cpu}
+              <strong>Categoria: </strong>
+              <strong>{props.category}</strong>
             </p>
             <p>
-              <strong>Memoria:</strong> {props.ram}
+              <strong>Calificación: </strong>
+              {props.rating.rate}
             </p>
+
             <p>
-              <strong>Sistema Operativo:</strong>
-              {props.sistemaoperativo}
-            </p>
-            <p>
-              <strong>Resolucion de Pantalla:</strong>{" "}
-              {props.resolucionpantalla}
-            </p>
-            <p>
-              <strong>Dimensiones:</strong> {props.dimensiones}
-            </p>
-            <p>
-              <strong>Bateria:</strong> {props.bateria}
-            </p>
-            <p>
-              <strong>Camaras:</strong> {props.camaras}
-            </p>
-            <p>
-              <strong>Peso: </strong>
-              {props.peso}
-            </p>
-            <p>
-              <strong>Precio:</strong> {props.precio}
+              <strong>Precio:</strong> {props.price}
             </p>
           </div>
           <div className="d-flex flex-column border-top border-bottom">
@@ -70,4 +55,4 @@ const propsDetail = ({ props }) => {
   );
 };
 
-export default propsDetail;
+export default ItemDetail;

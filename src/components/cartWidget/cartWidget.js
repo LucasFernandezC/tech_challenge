@@ -1,8 +1,10 @@
 import React from "react";
 import "./cartWidget.css";
+import { useContext } from "react";
+import { dataContext } from "../../context/context";
 
 const CartWidget = () => {
-  const cartCantidad = 5;
+  const { cart } = useContext(dataContext);
 
   return (
     <div className="cart-widget mx-5">
@@ -12,7 +14,7 @@ const CartWidget = () => {
         </h2>
       </span>
 
-      {cartCantidad > 0 ? <p className="">{cartCantidad}</p> : ""}
+      {cart > 0 ? <p className="">{cart}</p> : ""}
     </div>
   );
 };

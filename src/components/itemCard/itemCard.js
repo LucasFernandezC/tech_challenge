@@ -5,21 +5,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const ItemCard = ({ props }) => {
   return (
-    <div className="col-12 col-md-3 m-auto ">
+    <div className="col-12 col-md-3">
       <article className="card mx-1 my-2">
-        <img src={props.imagen} className="m-1" alt="producto en venta"></img>
+        <div className="d-flex" style={{ height: "300px" }}>
+          <img
+            src={props.image}
+            className="m-2 img-fluid mx-auto"
+            alt="producto en venta"
+          ></img>
+        </div>
         <div className="card-body text-center">
-          <h5 className="card-title ">
-            {props.marca} {props.modelo}
-          </h5>
-          <p className="card-text">{props.ram}</p>
-          <p>
-            <strong>SO: </strong>
-            {props.sistemaoperativo}
-          </p>
+          <h5 className="card-title ">{props.title.substring(0, 15)}</h5>
+          <p>{props.description.substring(0, 30)}...</p>
           <p>
             <strong>Precio: $ </strong>
-            {props.precio}
+            {props.price}
           </p>
 
           <Link to={`/product/${props.id}`} className="link">
