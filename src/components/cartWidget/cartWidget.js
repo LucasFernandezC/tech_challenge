@@ -7,6 +7,10 @@ import { dataContext } from "../../context/context";
 const CartWidget = () => {
   const { cart, cartProducts, deleteProduct, clear } = useContext(dataContext);
 
+  const handleClick = () => {
+    console.log("Aqui iria el checkout");
+  };
+
   return (
     <div className="cart-widget mx-5">
       <NavDropdown
@@ -50,6 +54,12 @@ const CartWidget = () => {
                 className={"btn-delete-all cart-product__borrar"}
               >
                 Vaciar carrito
+              </button>
+              <button
+                onClick={handleClick}
+                className={"btn-delete-all cart-product__borrar"}
+              >
+                Comprar
               </button>
             </NavDropdown.Item>
           </div>
